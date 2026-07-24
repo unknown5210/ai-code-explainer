@@ -26,7 +26,7 @@ def health_check():
 
 @app.post("/api/explain")
 async def explain_code(request: CodeRequest):
-    api_key = "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"
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     client = Groq(api_key=api_key)
 
     async def event_generator():
