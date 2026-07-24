@@ -26,8 +26,8 @@ def health_check():
 
 @app.post("/api/explain")
 async def explain_code(request: CodeRequest):
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-    client = Groq(api_key=api_key)
+    # Fixed: Passing the environment variable correctly to Groq client
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
     async def event_generator():
         prompt = f"""
