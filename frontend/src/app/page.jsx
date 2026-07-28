@@ -7,7 +7,7 @@ import OutputPanel from '../components/OutputPanel';
 import StatusBar from '../components/StatusBar';
 
 export default function CodeExplainerApp() {
-  const [code, setCode] = useState(`# Program to check if a number is prime\n\nnum = int(input("Enter a number: "))\n\nif num <= 1:\n    print(num, "is not a prime number")\nelse:\n    is_prime = True\n    for i in range(2, int(num ** 0.5) + 1):\n        if num % i == 0:\n            is_prime = False\n            break\n    \n    if is_prime:\n        print(num, "is a prime number")\n    else:\n        print(num, "is not a prime number")`);
+  const [code, setCode] = useState('');
   const [language, setLanguage] = useState('python');
   const [explanation, setExplanation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
