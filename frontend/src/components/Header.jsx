@@ -5,8 +5,8 @@ import { Sparkles, Upload, Trash2, Layers, Code2 } from 'lucide-react';
 
 export default function Header({ language, setLanguage, fileInputRef, handleFileUpload, clearCode, handleExplain, isLoading, isCodeEmpty }) {
   return (
-    <header className="bg-[#111827] border-b border-slate-800 h-12 px-4 flex items-center justify-between text-xs shrink-0 shadow-lg overflow-hidden">
-      <div className="flex items-center gap-3 shrink-0">
+    <header className="bg-[#111827] border-b border-slate-800 min-h-12 py-2 px-3 sm:px-4 flex flex-wrap items-center justify-between gap-2 text-xs shrink-0 shadow-lg">
+      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-blue-600 text-white shadow-md shadow-blue-500/20">
             <Code2 className="w-4 h-4" />
@@ -43,7 +43,7 @@ export default function Header({ language, setLanguage, fileInputRef, handleFile
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
         <input 
           type="file" 
           ref={fileInputRef} 
@@ -53,14 +53,14 @@ export default function Header({ language, setLanguage, fileInputRef, handleFile
         />
         <button 
           onClick={() => fileInputRef.current.click()}
-          className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#1E293B] hover:bg-slate-700/80 border border-slate-700 text-slate-200 transition shadow-sm cursor-pointer whitespace-nowrap"
+          className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium bg-[#1E293B] hover:bg-slate-700/80 border border-slate-700 text-slate-200 transition shadow-sm cursor-pointer whitespace-nowrap"
         >
-          <Upload className="w-3.5 h-3.5 text-sky-400" /> Upload File
+          <Upload className="w-3.5 h-3.5 text-sky-400" /> Upload
         </button>
 
         <button 
           onClick={clearCode}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium bg-[#1E293B] hover:bg-slate-700/80 border border-slate-700 text-slate-300 transition shadow-sm cursor-pointer whitespace-nowrap"
+          className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium bg-[#1E293B] hover:bg-slate-700/80 border border-slate-700 text-slate-300 transition shadow-sm cursor-pointer whitespace-nowrap"
         >
           <Trash2 className="w-3.5 h-3.5 text-rose-400" /> Clear
         </button>
@@ -68,16 +68,17 @@ export default function Header({ language, setLanguage, fileInputRef, handleFile
         <button
           onClick={handleExplain}
           disabled={isLoading || isCodeEmpty}
-          className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-semibold text-xs px-4 py-1.5 rounded-lg shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-50 cursor-pointer active:scale-95 whitespace-nowrap"
+          className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-semibold text-xs px-3 sm:px-4 py-1.5 rounded-lg shadow-md shadow-blue-500/25 transition-all duration-200 disabled:opacity-50 cursor-pointer active:scale-95 whitespace-nowrap"
         >
           {isLoading ? (
             <>
               <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              Analyzing...
+              <span>Analyzing...</span>
             </>
           ) : (
             <>
-              <Sparkles className="w-3.5 h-3.5 fill-current" /> ✨ Explain Code
+              <Sparkles className="w-3.5 h-3.5 fill-current" /> 
+              <span>Explain</span>
             </>
           )}
         </button>
